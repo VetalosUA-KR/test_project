@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private String test3 = "hello wolrd";
     private String tes = "hello wolrd";
     private String tes22 = "ДЕНЯ";
-    private int sum = 1000;
+    private int sum = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

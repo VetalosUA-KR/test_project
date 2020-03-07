@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     private int sum = 100;
     private int sumqqqq = 55555;
 
+    public String teswt = "other";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

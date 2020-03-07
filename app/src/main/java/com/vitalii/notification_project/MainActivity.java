@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private String tes22 = "ДЕНЯ";
     private int sum = 100;
     private int sumqqqq = 55555;
-    private int f =888;
+    private int f =898;
 
 
     public String teswt = "other";

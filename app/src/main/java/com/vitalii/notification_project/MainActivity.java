@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private String tes = "hello wolrd";
     private String tes22 = "ДЕНЯ";
     private int sum = 100;
+    private int sumqqqq = 55555;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

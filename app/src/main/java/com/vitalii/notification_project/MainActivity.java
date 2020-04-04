@@ -1,11 +1,7 @@
 package com.vitalii.notification_project;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
-import android.content.Intent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -21,10 +17,11 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+    @SuppressLint("StaticFieldLeak")
     private static MainActivity inst;
-    ArrayList<String> smsMessagesList = new ArrayList<String>();
+    ArrayList<String> smsMessagesList = new ArrayList<>();
     ListView smsListView;
-    ArrayAdapter arrayAdapter;
+    ArrayAdapter<String> arrayAdapter;
 
     public static  MainActivity instance()
     {
@@ -41,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        smsListView = (ListView)findViewById(R.id.List);
+        smsListView = findViewById(R.id.List);
 
-        arrayAdapter = new ArrayAdapter<String>(this,
+        arrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, smsMessagesList);
         smsListView.setAdapter(arrayAdapter);
         //if Permission Is Not GRANTED
@@ -63,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void refreshSMSInbox() {
         ContentResolver contentResolver = getContentResolver();
-        Cursor smsInboxCursor = contentResolver.query(Uri.parse("content://sms/inbox"), null, null, null, null);
+        @SuppressLint("Recycle") Cursor smsInboxCursor = contentResolver.query(Uri.parse("content://sms/inbox"), null, null, null, null);
+        assert smsInboxCursor != null;
         int indexBody = smsInboxCursor.getColumnIndex("Body");
         int indexAdress = smsInboxCursor.getColumnIndex("address");
         if(indexBody < 0 || !smsInboxCursor.moveToFirst()) return;

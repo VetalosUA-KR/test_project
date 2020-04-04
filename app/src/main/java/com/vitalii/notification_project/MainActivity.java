@@ -2,6 +2,7 @@ package com.vitalii.notification_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.admin.SystemUpdatePolicy;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,10 +25,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        print1();
+
     }
 
     public void print1()
     {
+        System.out.println("Hello world");
 
     }
 }

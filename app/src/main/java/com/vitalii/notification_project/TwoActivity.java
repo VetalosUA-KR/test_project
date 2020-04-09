@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import java.util.Locale;
 
+
 public class TwoActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
 
     private TextToSpeech tts;
@@ -68,6 +69,7 @@ public class TwoActivity extends AppCompatActivity implements TextToSpeech.OnIni
 
     }
 
+    ///speech to text
     private void speakOut() {
 
         String text = txtText.getText().toString();

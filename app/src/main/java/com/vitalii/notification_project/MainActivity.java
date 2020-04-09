@@ -3,9 +3,7 @@ package com.vitalii.notification_project;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -20,11 +18,13 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
     private static MainActivity inst;
     ArrayList<String> smsMessagesList = new ArrayList<String>();
     ListView smsListView;
     ArrayAdapter arrayAdapter;
+
+    Button button;
 
     public static  MainActivity instance()
     {
@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        button = (Button)findViewById(R.id.btnSpeak);
+        button.setOnClickListener(this);
 
         smsListView = (ListView)findViewById(R.id.List);
 
@@ -80,4 +83,11 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapter.notifyDataSetChanged();
     }
 
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this,TwoActivity.class);
+        startActivity(intent);
+
+    }
 }

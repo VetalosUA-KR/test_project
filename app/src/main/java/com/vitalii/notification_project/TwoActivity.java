@@ -55,8 +55,8 @@ public class TwoActivity extends AppCompatActivity implements TextToSpeech.OnIni
 
             int result = tts.setLanguage(Locale.US);
 
-            if (result == TextToSpeech.LANG_MISSING_DATA
-                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED)
+            {
                 Log.e("TTS", "This Language is not supported");
             } else {
                 btnSpeak.setEnabled(true);

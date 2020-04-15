@@ -1,7 +1,9 @@
 package com.vitalii.notification_project;
 
-import android.annotation.SuppressLint;
 import android.content.ContentResolver;
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -16,12 +18,13 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
-    @SuppressLint("StaticFieldLeak")
+public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
     private static MainActivity inst;
-    ArrayList<String> smsMessagesList = new ArrayList<>();
+    ArrayList<String> smsMessagesList = new ArrayList<String>();
     ListView smsListView;
-    ArrayAdapter<String> arrayAdapter;
+    ArrayAdapter arrayAdapter;
+
+    Button button;
 
     public static  MainActivity instance()
     {
@@ -38,9 +41,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        smsListView = findViewById(R.id.List);
+        button = (Button)findViewById(R.id.btnSpeak);
+        button.setOnClickListener(this);
 
-        arrayAdapter = new ArrayAdapter<>(this,
+        smsListView = (ListView)findViewById(R.id.List);
+
+        arrayAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, smsMessagesList);
         smsListView.setAdapter(arrayAdapter);
         //if Permission Is Not GRANTED
@@ -60,8 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void refreshSMSInbox() {
         ContentResolver contentResolver = getContentResolver();
-        @SuppressLint("Recycle") Cursor smsInboxCursor = contentResolver.query(Uri.parse("content://sms/inbox"), null, null, null, null);
-        assert smsInboxCursor != null;
+        Cursor smsInboxCursor = contentResolver.query(Uri.parse("content://sms/inbox"), null, null, null, null);
         int indexBody = smsInboxCursor.getColumnIndex("Body");
         int indexAdress = smsInboxCursor.getColumnIndex("address");
         if(indexBody < 0 || !smsInboxCursor.moveToFirst()) return;
@@ -78,4 +83,11 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapter.notifyDataSetChanged();
     }
 
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this,TwoActivity.class);
+        startActivity(intent);
+
+    }
 }

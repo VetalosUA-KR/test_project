@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         }while (smsInboxCursor.moveToNext());
     }
 
-    public  void updateList(final String smsMessage){
+    public void updateList(final String smsMessage){
         arrayAdapter.insert(smsMessage,0);
         arrayAdapter.notifyDataSetChanged();
     }

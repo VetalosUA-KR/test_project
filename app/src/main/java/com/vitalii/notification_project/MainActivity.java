@@ -89,7 +89,11 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                     "\n" + smsInboxCursor.getString(indexBody) + "\n";
         arrayAdapter.add(str);
 
-        textView.setText(smsInboxCursor.getString(indexBody));
+
+        ///added info about who sended message for us
+        String from = "You have SMS From: " + smsInboxCursor.getString(indexAdress);
+        String sms = "Your sms is " + smsInboxCursor.getString(indexBody);
+        textView.setText(from + "\n" + sms);
 
 
     }

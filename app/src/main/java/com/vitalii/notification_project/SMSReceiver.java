@@ -8,6 +8,7 @@ import android.telephony.SmsMessage;
 import android.widget.Toast;
 
 public class SMSReceiver extends BroadcastReceiver {
+
     public static final String SMS_BUNDLE = "pdus";
 
     public  void onReceive(Context context, Intent intent)
@@ -28,6 +29,7 @@ public class SMSReceiver extends BroadcastReceiver {
                 smsMessageStr += smsBody + "\n";
             }
             Toast.makeText(context, smsMessageStr, Toast.LENGTH_SHORT).show();
+
 
             MainActivity inst = MainActivity.instance();
             inst.updateList(smsMessageStr);

@@ -1,4 +1,4 @@
-package com.vitalii.notification_project;
+package com.example.ssa_ezra.smsvoice;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,17 +10,15 @@ import android.widget.Toast;
 public class SMSReceiver extends BroadcastReceiver {
 
     public static final String SMS_BUNDLE = "pdus";
+    private static final String ACTION = "android.provider.Telephony.SMS_RECEIVED";
 
-    public  void onReceive(Context context, Intent intent)
-    {
+    public  void onReceive(Context context, Intent intent) {
         Bundle intentExtras = intent.getExtras();
-        if(intentExtras != null)
-        {
-            Object[] sms = (Object[])intentExtras.get(SMS_BUNDLE);
+        if (intentExtras != null) {
+            Object[] sms = (Object[]) intentExtras.get(SMS_BUNDLE);
             String smsMessageStr = "";
-            for(int i = 0; i < sms.length; ++i)
-            {
-                SmsMessage smsMessage = SmsMessage.createFromPdu((byte[])sms[i]);
+            for (int i = 0; i < sms.length; ++i) {
+                SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) sms[i]);
 
                 String smsBody = smsMessage.getMessageBody();
                 String address = smsMessage.getOriginatingAddress();
@@ -30,9 +28,10 @@ public class SMSReceiver extends BroadcastReceiver {
             }
             Toast.makeText(context, smsMessageStr, Toast.LENGTH_SHORT).show();
 
-
             MainActivity inst = MainActivity.instance();
             inst.updateList(smsMessageStr);
         }
+
     }
+
 }

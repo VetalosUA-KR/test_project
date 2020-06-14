@@ -1,4 +1,4 @@
-package com.vitalii.notification_project;
+package com.example.ssa_ezra.smsvoice;
 
 import org.junit.Test;
 

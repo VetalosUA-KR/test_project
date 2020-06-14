@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="onClick"
+    tools:context=".MainActivity">
+
+
+    <ListView
+        android:id="@+id/List"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+    <ImageButton
+        android:id="@+id/btnSpeak"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/on"
+        android:background="@drawable/oval_button"
+        android:translationX="300dp"
+        android:translationY="0dp">
+    </ImageButton>
+
+
+
+    <include
+        layout="@layout/content_main"
+        android:translationX="300dp"
+        android:translationY="400dp" />
+
+</RelativeLayout>

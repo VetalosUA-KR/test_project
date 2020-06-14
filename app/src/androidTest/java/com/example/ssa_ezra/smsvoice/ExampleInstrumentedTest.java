@@ -1,4 +1,4 @@
-package com.vitalii.notification_project;
+package com.example.ssa_ezra.smsvoice;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.vitalii.notification_project", appContext.getPackageName());
+        assertEquals("com.example.ssa_ezra.smsvoice", appContext.getPackageName());
     }
 }

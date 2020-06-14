@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/TextFields">
+
+        <EditText
+            android:id="@+id/TextFields"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:importantForAutofill="no"
+            android:inputType="text" />
+
+        <ImageButton
+            android:id="@+id/button_Plus"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:background="@drawable/oval_button"
+            android:src="@drawable/plus"
+            android:text="@string/butto" />
+
+        <ImageButton
+            android:id="@+id/button_Minus"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:background="@drawable/oval_button"
+            android:src="@drawable/minus"
+            android:text="@string/minus" />
+
+        <ImageButton
+            android:id="@+id/button_Next"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:background="@drawable/oval_button"
+            android:src="@drawable/next2"
+            android:text="@string/next" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/button_Show"
+            android:layout_width="180dp"
+            android:layout_height="45dp"
+            android:onClick="onClick"
+            android:background="@drawable/back"
+            android:src="@drawable/show"
+            android:layout_weight="1"
+            android:text="@string/show"/>
+
+        <ImageButton
+            android:id="@+id/button_Block"
+            android:layout_width="180dp"
+            android:layout_height="45dp"
+            android:background="@drawable/back"
+
+            android:src="@drawable/block"
+            android:text="@string/blocked_numbers" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/phonesList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:choiceMode="multipleChoice" />
+
+
+
+
+</LinearLayout>

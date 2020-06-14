@@ -5,8 +5,8 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.vitalii.notification_project"
-        minSdkVersion 18
+        applicationId "com.example.ssa_ezra.smsvoice"
+        minSdkVersion 20
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"

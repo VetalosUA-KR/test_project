@@ -1,2 +1,2 @@
-rootProject.name='Notification_Project'
+rootProject.name='SMSVOICE'
 include ':app'
